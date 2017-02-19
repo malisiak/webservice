@@ -1,0 +1,6 @@
+/.idea/
+/target/
+*.iml
+*.cfg.xml
+*.log
+*.lib

@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="logged.css"/>
+    </h:head>
+
+    <p:outputPanel rendered="#{not empty editor.user}">
+        <p:outputPanel layout="block" styleClass="textPanel">
+            <h:outputText value="Analiza aktywności"></h:outputText>
+        </p:outputPanel>
+        <p:outputPanel layout="block" style="height: 700px;">
+            <p:outputPanel layout="block" style="float:left; width:550px; ">
+                <p:chart type="bar" model="#{activityChart.generalDurationModel}" style="height:350px; width:500px;"/>
+
+            </p:outputPanel>
+            <p:outputPanel layout="block" style="float:left; width:550px; ">
+                <p:chart type="pie" model="#{activityChart.averageDurationModel}" style="width:400px;height:300px"/>
+            </p:outputPanel>
+            <p:outputPanel layout="block" style="float:left;">
+                <p:chart type="bar" model="#{activityChart.dayDurationModel}"
+                         style="height:350px; width:1000px; float:left"/>
+            </p:outputPanel>
+        </p:outputPanel>
+    </p:outputPanel>
+
+</ui:composition>

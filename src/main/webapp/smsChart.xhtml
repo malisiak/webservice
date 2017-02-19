@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <p:outputPanel rendered="#{not empty editor.user}">
+        <p:outputPanel style="font-size: 34px; margin-left: auto; margin-right:auto; padding: 10px">
+            <h:outputText value="tutaj będzie sms chart"/>
+        </p:outputPanel>
+
+
+        <p:outputPanel layout="block" style="height: 700px;">
+            <p:outputPanel layout="block" style="float:left; width:550px; ">
+                <p:chart type="bar" model="#{smsChart.generalAmountModel}" style="height:350px; width:500px;"/>
+            </p:outputPanel>
+
+            <p:outputPanel layout="block" style="float:left; width:550px; ">
+                <p:chart type="bar" model="#{smsChart.averageAmountModel}" style="height:350px; width:500px;"/>
+            </p:outputPanel>
+            <p:outputPanel layout="block" style="clear: both;"></p:outputPanel>
+
+            <p:outputPanel layout="block" style="float:left; width:550px; ">
+                <p:chart type="bar" model="#{smsChart.dayAmountModel}" style="height:350px; width:1000px;"/>
+            </p:outputPanel>
+        </p:outputPanel>
+    </p:outputPanel>
+
+</ui:composition>

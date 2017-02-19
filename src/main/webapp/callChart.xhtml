@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <p:outputPanel rendered="#{not empty editor.user}">
+        <p:outputPanel layout="block" style="height: 700px;">
+            <p:outputPanel layout="block" style="float:left; width:550px; margin-left: 220px">
+                <p:chart type="bar" model="#{callChart.generalDurationModel}" style="height:350px; width:500px;"/>
+            </p:outputPanel>
+            <p:outputPanel layout="block" style="float:left; width:550px; margin-top: 22px">
+                <p:chart type="pie" model="#{callChart.averageDurationModel}"
+                         style="height:300px; width:450px; float:left"/>
+            </p:outputPanel>
+            <!--<p:outputPanel layout="block" style="clear: both;"></p:outputPanel>-->
+            <p:outputPanel layout="block" style="float:left; width:500px;">
+                <p:chart type="bar" model="#{callChart.dayDurationModel}"
+                         style="height:300px; width:1000px; float:left"/>
+            </p:outputPanel>
+        </p:outputPanel>
+    </p:outputPanel>
+
+</ui:composition>

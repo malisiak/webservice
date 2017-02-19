@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <link rel="stylesheet" type="text/css" href="logged.css"/>
+    <title>System Analizy Danych Kontekstowych</title>
+    <link rel="icon" type="image/png" href="favicon.png"/>
+</h:head>
+<h:body>
+    <h:form>
+
+        <p:outputPanel layout="block" styleClass="website" rendered="#{not empty editor.user}">
+
+            <p:outputPanel layout="block" styleClass="top">
+                <p:outputPanel styleClass="header" layout="block">
+                    <h:outputText value="Analiza danych kontekstowych" style="font-size: 34px;"></h:outputText>
+                    <!--<h:outputText value="#{editor.text}" style="font-size: 34px;"/>-->
+                </p:outputPanel>
+
+                <p:outputPanel styleClass="menu" layout="block">
+
+                    <p:outputPanel styleClass="buttons">
+                        <p:outputPanel styleClass="button">
+                            <p:commandLink update="contentPage">
+                                <p:graphicImage height="50" width="50" value="img/data-icon.png"
+                                                style="display: block; margin-left: auto; margin-right: auto;"/>
+                                <h:outputText value="Eksploracja" style="display: block;"/>
+                                <f:setPropertyActionListener value="wekaChart.xhtml" target="#{editor.websiteContent}"/>
+                                <!--<f:setPropertyActionListener value="Analiza danych kontekstowych " target="#{editor.text}"/>-->
+                            </p:commandLink>
+                        </p:outputPanel>
+
+                        <p:outputPanel styleClass="button">
+                            <p:commandLink update="contentPage">
+                                <p:graphicImage height="50" width="50" value="img/call-icon.png"
+                                                style="display: block; margin-left: auto; margin-right: auto;"/>
+                                <h:outputText value="Połączenia" style="display: block;"/>
+                                <f:setPropertyActionListener value="callChart.xhtml" target="#{editor.websiteContent}"/>
+                            </p:commandLink>
+                        </p:outputPanel>
+
+                        <p:outputPanel styleClass="button">
+                            <p:commandLink update="contentPage">
+                                <p:graphicImage height="50" width="50" value="img/process-icon.png"
+                                                style="display: block; margin-left: auto; margin-right: auto;"/>
+                                <h:outputText value="Procesy" style="display: block;"/>
+                                <f:setPropertyActionListener value="processChart.xhtml" target="#{editor.websiteContent}"/>
+                            </p:commandLink>
+                        </p:outputPanel>
+
+                        <p:outputPanel styleClass="button">
+                            <p:commandLink update="contentPage">
+                                <p:graphicImage height="50" width="50" value="img/email-icon.svg"
+                                                style="display: block; margin-left: auto; margin-right: auto;"/>
+                                <h:outputText value="SMS" style="display: block;"/>
+                                <f:setPropertyActionListener value="smsChart.xhtml" target="#{editor.websiteContent}"/>
+                            </p:commandLink>
+                        </p:outputPanel>
+
+                        <p:outputPanel styleClass="button">
+                            <p:commandLink update="contentPage">
+                                <p:graphicImage height="50" width="50" value="img/running-icon.png"
+                                                style="display: block; margin-left: auto; margin-right: auto;" />
+                                <h:outputText value="Aktywności" style="display: block;"/>
+                                <f:setPropertyActionListener value="activityChart.xhtml" target="#{editor.websiteContent}"/>
+                            </p:commandLink>
+                        </p:outputPanel>
+                        <p:outputPanel styleClass="button">
+                            <p:commandLink update="contentPage" action="#{editor.logout}">
+                                <p:graphicImage height="50" width="50" value="img/logout.png"
+                                                style="display: block; margin-left: auto; margin-right: auto;"/>
+                                <h:outputText value="Wyloguj" style="display: block;"/>
+                            </p:commandLink>
+                        </p:outputPanel>
+                    </p:outputPanel>
+
+                </p:outputPanel>
+            </p:outputPanel>
+
+            <p:outputPanel styleClass="content" layout="block">
+                <p:outputPanel id="contentPage" layout="block">
+                    <ui:include src="#{editor.websiteContent}"/>
+                </p:outputPanel>
+            </p:outputPanel>
+        </p:outputPanel>
+    </h:form>
+</h:body>
+</html>
